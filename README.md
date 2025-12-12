@@ -29,48 +29,35 @@ NAME        : GAYATHRI C
 REGISTER NO : 25009125
 SLOT NAME   : 3P1-1
 
-arr_time=float(input("Enter the mean inter arrival time of objects from feeder (in secs):")) 
-ser_time1=float(input("Enter the mean inter service time of lathe machine 1 (in secs):")) 
-ser_time2=float(input("Enter the mean inter service time of lathe machine 2 (in secs):")) 
-ser_time3=float(input("Enter the mean inter service time of lathe machine 3 (in secs):")) 
-Robot_time=float(input("Enter the Additional time taken for the robot (in secs):")) 
+arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs)")) 
+ser_time=float(input("Enter the mean inter servie time of Lathe Machine (in secs):")) 
+Robot_time=float(input("Enter the Additional time taken for the Robot (in secs):")) 
 lam=1/arr_time 
-mu1=1/(ser_time1+Robot_time) 
-mu2=1/(ser_time2+Robot_time) 
-mu3=1/(ser_time3+Robot_time) 
-print("---------------------------------------------") 
-print("Series Queues with infinite capacity-Open Jackson Network") 
-print("----------------------------------------------") 
-if(lam<mu1) and (lam<mu2) and (lam<mu3): 
-    Ls1=lam/(mu1-lam) 
-    Ls2=lam/(mu2-lam) 
-    Ls3=lam/(mu3-lam) 
-    Ls=Ls1+Ls2+Ls3 
-    Lq1=Ls1-lam/mu1 
-    Lq2=Ls2-lam/mu2 
-    Lq3=Ls3-lam/mu3 
-    Wq1=Lq1/lam 
-    Wq2=Lq2/lam 
-    Wq3=Lq3/lam 
-    Ws=Ls/(3*lam) 
-    print("Average number of objects in the system S1: %0.2f"%Ls1) 
-    print("Average number of objects in the system S2: %0.2f"%Ls2) 
-    print("Average number of objects in the system S3: %0.2f"%Ls3) 
-    print("Average number of objects in the over all system : %0.2f"%Ls) 
-    print("Average number of objects in the conveyor S1: %0.2f"%Lq1) 
-    print("Average number of objects in the conveyor S1: %0.2f"%Lq1) 
-    print("Average number of objects in the conveyor S2: %0.2f"%Lq2) 
-    print("Average number of objects in the conveyor S3: %0.2f"%Lq3) 
-    print(f"Average waiting time of an object in the system: {Ws:.2f}")
-    print("Average waiting time of an object in the conveyor S1: %0.2f secs"%Wq1) 
-    print("Average waiting time of an object in the conveyor S2: %0.2f secs"%Wq2) 
-    print("Average waiting time of an object in the conveyor S3: %0.2f secs"%Wq3) 
+mu=1/(ser_time+Robot_time) 
+print("----------------------------------------") 
+print("Single Server with Infinite Capacity-(M/M/1):(00/FIFO)") 
+print("----------------------------------------") 
+print("The mean arrival rate per second: %0.2f "%lam) 
+print("The mean service rate per second: %0.2f "%mu) 
+if(lam<mu): 
+    Ls=lam/(mu-lam) 
+    Lq=Ls-lam/mu 
+    Ws=Ls/lam 
+    Wq=Lq/lam 
+    print("Average number of objects in the system: %0.2f"%Ls) 
+    print("Average number of objects in the conveyer: %0.2f"%Lq) 
+    print("Average time spent by an object in the system: %0.2f"%Ws,"secs") 
+    print("Average time spent by an object in the conveyer: %0.2f"%Wq,"secs") 
+    print("Probability that the system is busy: %0.2f "%(lam/mu)) 
+    print("Probability that the system is empty: %0.2f "%(1-lam/mu)) 
 else: 
-    print("Warning! Objects overflow will happen in the conveyor") 
-print("--------------------------------------------------------------") 
+    print("Warning! Objects overflow will happen in the conveyer") 
+print("----------------------------------------") 
 ```
-# Output
-<img width="947" height="495" alt="image" src="https://github.com/user-attachments/assets/0e239ace-c041-4cfa-90d8-666a5b17c208" />
+COLAB LINK: https://colab.research.google.com/drive/103svsFbJNTOel19OBvGmB6lFI3j_USwt?usp=sharing
+# Output:
+<img width="874" height="334" alt="image" src="https://github.com/user-attachments/assets/e2ae2125-78e9-43ed-b42b-ea7f5988380d" />
+
 
 # Result
        The average number of material in the system and in the conveyor and waiting time are successfully found.
