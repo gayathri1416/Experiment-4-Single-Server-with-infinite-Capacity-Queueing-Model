@@ -54,10 +54,9 @@ else:
     print("Warning! Objects overflow will happen in the conveyer") 
 print("----------------------------------------") 
 ```
-COLAB LINK: https://colab.research.google.com/drive/103svsFbJNTOel19OBvGmB6lFI3j_USwt?usp=sharing
+COLAB LINK: [https://colab.research.google.com/drive/103svsFbJNTOel19OBvGmB6lFI3j_USwt?usp=sharing](https://colab.research.google.com/drive/1f9bpSzDFL4sdQvxC8B110t7HI8lECT4i?usp=sharing)
 # Output:
 <img width="874" height="334" alt="image" src="https://github.com/user-attachments/assets/e2ae2125-78e9-43ed-b42b-ea7f5988380d" />
-
 
 # Result
        The average number of material in the system and in the conveyor and waiting time are successfully found.
